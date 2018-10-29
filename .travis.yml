@@ -20,5 +20,5 @@ install:
 script:
 - go get -t -v ./...
 - diff -u <(echo -n) <(gofmt -d .)
-- if [[ "$LATEST" = true ]]; then go tool vet .; fi
+- go tool vet .
 - go test -v -race ./...
