@@ -1,5 +1,7 @@
 # ACL
 
+[![Build Status](https://travis-ci.org/MrBoolean/acl.svg?branch=master)](https://travis-ci.org/MrBoolean/acl)
+
 ### TL;DR;
 
 > ...
