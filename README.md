@@ -1,5 +1,3 @@
-**WIP**
-
 # ACL
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/07072bf48e3d43c09213781a56553a5d)](https://app.codacy.com/app/mrboolean/acl?utm_source=github.com&utm_medium=referral&utm_content=MrBoolean/acl&utm_campaign=Badge_Grade_Dashboard)
