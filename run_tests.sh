@@ -8,6 +8,7 @@ COVERAGE_PROFILE_FILE="$WORK_DIR/cover.out"
 COVERAGE_MODE=count
 
 go get github.com/stretchr/testify
+go get github.com/schrej/godacov
 
 generateCoverage() {
     rm -rf "$WORK_DIR"
@@ -26,8 +27,9 @@ showCoverageReport() {
     go tool cover -${1}="$COVERAGE_PROFILE_FILE"
 }
 
-if [ "$1" == "--jenkins" ]; then
-	go test -v ./... | go-junit-report > ./junit.xml
+if [ "$1" == "--ci" ]; then
+	go test -v ./... -coverprofile=coverage.out
+	godacov -t $CODACY_TOKEN -r ./coverage.out -c $TRAVIS_COMMIT
 else
     generateCoverage $(go list ./...)
     showCoverageReport func
