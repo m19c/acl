@@ -72,22 +72,22 @@ func TestExaminer(t *testing.T) {
 	})
 	manager.Register(guest, user, admin)
 
-	granted := manager.Examine(userPayload{
+	rs := manager.Examine(userPayload{
 		Id:    "test",
 		Roles: []string{"user"},
 	})
-	assert.Len(t, granted, 1)
-	assert.Equal(t, user, granted[0])
+	assert.Len(t, rs.Matches, 1)
+	assert.Equal(t, user, rs.GetRole("user"))
 
-	granted = manager.Examine(userPayload{
+	rs = manager.Examine(userPayload{
 		Id:    "test",
 		Roles: []string{"user", "admin"},
 	})
-	assert.Len(t, granted, 2)
+	assert.Len(t, rs.Matches, 2)
 
 	var examinedUser *Role
 	var examinedAdmin *Role
-	for _, examined := range granted {
+	for _, examined := range rs.Matches {
 		if examined.Id == "user" {
 			examinedUser = examined
 		}
