@@ -5,7 +5,6 @@
 package acl
 
 import (
-	"errors"
 	"fmt"
 )
 
@@ -31,7 +30,7 @@ func NewManager() *Manager {
 func (manager *Manager) Register(roles ...*Role) (*Manager, error) {
 	for index, role := range roles {
 		if manager.Get(role.Id) != nil {
-			return manager, errors.New(fmt.Sprintf("cannot register role %s (on position %d) because the id is already in use", role.Id, index))
+			return manager, fmt.Errorf("cannot register role %s (on position %d) because the id is already in use", role.Id, index)
 		}
 
 		manager.registry[role.Id] = role

@@ -53,7 +53,7 @@ func TestManager_Get(t *testing.T) {
 }
 
 type userPayload struct {
-	Id    string
+	ID    string
 	Roles []string
 }
 
@@ -85,14 +85,14 @@ func TestManager_Examine(t *testing.T) {
 	manager.Register(guest, user, admin)
 
 	rs := manager.Examine(userPayload{
-		Id:    "test",
+		ID:    "test",
 		Roles: []string{"user"},
 	})
 	assert.Len(t, rs.Matches, 1)
 	assert.Equal(t, user, rs.GetRole("user"))
 
 	rs = manager.Examine(userPayload{
-		Id:    "test",
+		ID:    "test",
 		Roles: []string{"user", "admin"},
 	})
 	assert.Len(t, rs.Matches, 2)
