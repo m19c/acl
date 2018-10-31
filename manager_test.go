@@ -9,7 +9,7 @@ func TestNewManager(t *testing.T) {
 	assert.Equal(t, &Manager{registry: map[string]*Role{}}, NewManager())
 }
 
-func TestRegister(t *testing.T) {
+func TestManager_Register(t *testing.T) {
 	manager := NewManager()
 	role := NewRole("test")
 
@@ -19,7 +19,7 @@ func TestRegister(t *testing.T) {
 	assert.NoError(t, err)
 }
 
-func TestRegisterSameRole(t *testing.T) {
+func TestManager_RegisterWithTheSameRole(t *testing.T) {
 	manager := NewManager()
 	roleA := NewRole("test")
 	roleB := NewRole("test")
@@ -30,7 +30,19 @@ func TestRegisterSameRole(t *testing.T) {
 	assert.Equal(t, manager, res)
 }
 
-func TestGet(t *testing.T) {
+func TestManager_Ensure(t *testing.T) {
+	a := assert.New(t)
+	m := NewManager()
+	r1 := NewRole("r1")
+
+	m.Register(r1)
+	a.Equal(r1, m.Ensure("r1"))
+
+	r2 := m.Ensure("r2")
+	a.Equal(r2, m.Ensure("r2"))
+}
+
+func TestManager_Get(t *testing.T) {
 	manager := NewManager()
 
 	assert.Nil(t, manager.Get("test"))
@@ -45,7 +57,7 @@ type userPayload struct {
 	Roles []string
 }
 
-func TestExaminer(t *testing.T) {
+func TestManager_Examine(t *testing.T) {
 	manager := NewManager()
 	guest := NewRole("guest")
 	user := NewRole("user").Grant("user.read").SetExaminer(func(payload interface{}) bool {

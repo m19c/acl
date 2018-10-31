@@ -17,7 +17,7 @@ func createDummyExaminer(returnValue bool) ExaminerFunc {
 	}
 }
 
-func TestFullIntegration(t *testing.T) {
+func TestEverything(t *testing.T) {
 	a := assert.New(t)
 
 	user := NewRole("user").Grant(rightProfileEdit)
