@@ -1,10 +1,9 @@
 # ACL
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/07072bf48e3d43c09213781a56553a5d)](https://app.codacy.com/app/mrboolean/acl?utm_source=github.com&utm_medium=referral&utm_content=MrBoolean/acl&utm_campaign=Badge_Grade_Dashboard)
-[![Build Status](https://travis-ci.org/MrBoolean/acl.svg?branch=master)](https://travis-ci.org/MrBoolean/acl)
-[![Codacy Badge](https://api.codacy.com/project/badge/Coverage/04065034d8b6496c95acd7b5b056b940)](https://www.codacy.com/app/mrboolean/acl?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=MrBoolean/acl&amp;utm_campaign=Badge_Coverage)
-[![Documentation](https://godoc.org/github.com/MrBoolean/acl?status.svg)](http://godoc.org/github.com/MrBoolean/acl)
-
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/07072bf48e3d43c09213781a56553a5d)](https://app.codacy.com/app/m19c/acl?utm_source=github.com&utm_medium=referral&utm_content=m19c/acl&utm_campaign=Badge_Grade_Dashboard)
+[![Build Status](https://travis-ci.org/m19c/acl.svg?branch=master)](https://travis-ci.org/m19c/acl)
+[![Codacy Badge](https://api.codacy.com/project/badge/Coverage/04065034d8b6496c95acd7b5b056b940)](https://www.codacy.com/app/m19c/acl?utm_source=github.com&utm_medium=referral&utm_content=m19c/acl&utm_campaign=Badge_Coverage)
+[![Documentation](https://godoc.org/github.com/m19c/acl?status.svg)](http://godoc.org/github.com/m19c/acl)
 
 ## TL;DR;
 
