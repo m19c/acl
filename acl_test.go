@@ -6,11 +6,13 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-const rightProfileEdit = "profile.edit"
-const rightNewsList = "news.list"
-const rightNewsCreate = "news.create"
-const rightNewsEdit = "news.edit"
-const rightNewsDelete = "news.delete"
+const (
+	rightProfileEdit = "profile.edit"
+	rightNewsList    = "news.list"
+	rightNewsCreate  = "news.create"
+	rightNewsEdit    = "news.edit"
+	rightNewsDelete  = "news.delete"
+)
 
 func createDummyExaminer(returnValue bool) ExaminerFunc {
 	return func(payload interface{}) bool {

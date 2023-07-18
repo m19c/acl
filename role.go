@@ -124,16 +124,12 @@ func (role *Role) HasAllOf(rights ...string) bool {
 
 	resolve := func(right string) bool {
 		if !registry[right] {
-			total = total - 1
+			total--
 		}
 
 		registry[right] = true
 
-		if total == 0 {
-			return true
-		}
-
-		return false
+		return total == 0
 	}
 
 	for _, right := range rights {

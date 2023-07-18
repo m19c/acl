@@ -7,7 +7,6 @@ import (
 )
 
 func TestNewRole(t *testing.T) {
-
 	assert.Equal(t, &Role{Id: "test"}, NewRole("test"))
 }
 

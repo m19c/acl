@@ -6,7 +6,8 @@ type ResultSet struct {
 
 // NewResultSet creates a new `ResultSet` instance
 func NewResultSet(roles ...*Role) *ResultSet {
-	var matches = map[string]*Role{}
+	matches := map[string]*Role{}
+
 	for _, role := range roles {
 		matches[role.Id] = role
 	}
@@ -65,16 +66,12 @@ func (result *ResultSet) HasAllOf(rights ...string) bool {
 
 	resolve := func(right string) bool {
 		if !registry[right] {
-			total = total - 1
+			total--
 		}
 
 		registry[right] = true
 
-		if total == 0 {
-			return true
-		}
-
-		return false
+		return total == 0
 	}
 
 	for _, right := range rights {
