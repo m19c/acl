@@ -30,10 +30,10 @@ type Role struct {
 
 // Grant adds the given right(s) to the role.
 //
-//	   func main() {
-//         r := NewRole("a")
-//         r.Grant("right.a", "right.b")
-//     }
+//		   func main() {
+//	        r := NewRole("a")
+//	        r.Grant("right.a", "right.b")
+//	    }
 //
 // Note, that duplications will be ignored.
 func (role *Role) Grant(rights ...string) *Role {
@@ -57,11 +57,11 @@ func (role *Role) Grant(rights ...string) *Role {
 
 // Revoke removes the given right(s) from the role.
 //
-//	   func main() {
-//         r := NewRole("a")
-//         r.Grant("right.a", "right.b")
-//         r.Revoke("right.a")
-//     }
+//		   func main() {
+//	        r := NewRole("a")
+//	        r.Grant("right.a", "right.b")
+//	        r.Revoke("right.a")
+//	    }
 func (role *Role) Revoke(rights ...string) *Role {
 	for _, right := range rights {
 		if index := determineIndex(role.granted, right); index >= 0 {
@@ -74,10 +74,10 @@ func (role *Role) Revoke(rights ...string) *Role {
 
 // AcquireFrom grabs the rights from the given roles to add them.
 //
-//	   func main() {
-//         r1 := NewRole("r1").Grant("right.a")
-//         r2 := NewRole("r2").AcquireFrom(r1).Grant("right.b")
-//     }
+//		   func main() {
+//	        r1 := NewRole("r1").Grant("right.a")
+//	        r2 := NewRole("r2").AcquireFrom(r1).Grant("right.b")
+//	    }
 func (role *Role) AcquireFrom(roles ...*Role) *Role {
 	for _, ar := range roles {
 		role.Grant(ar.granted...)
@@ -97,11 +97,11 @@ func (role *Role) Has(right string) bool {
 
 // HasOneOf checks that at least one of the given rights has been granted.
 //
-//     func main() {
-//         r := NewRole("r")
-//         r.Grant("right.a")
-//         r.HasOneOf("right.a", "right.b")
-//     }
+//	func main() {
+//	    r := NewRole("r")
+//	    r.Grant("right.a")
+//	    r.HasOneOf("right.a", "right.b")
+//	}
 func (role *Role) HasOneOf(rights ...string) bool {
 	for _, right := range rights {
 		if determineIndex(role.granted, right) >= 0 {
@@ -114,10 +114,10 @@ func (role *Role) HasOneOf(rights ...string) bool {
 
 // HasAllOf verifies that all specified rights are present.
 //
-//     func main() {
-//         r := NewRole("r").Grant("a", "b", "c")
-//         r.HasAllOf("a", b", "c")
-//     }
+//	func main() {
+//	    r := NewRole("r").Grant("a", "b", "c")
+//	    r.HasAllOf("a", b", "c")
+//	}
 func (role *Role) HasAllOf(rights ...string) bool {
 	registry := map[string]bool{}
 	total := len(rights)
@@ -149,18 +149,18 @@ func (role *Role) HasAllOf(rights ...string) bool {
 //
 // The examiner is used to determine whether a role can be added to a `ResultSet`.
 //
-//     type User struct {
-//         isAdmin bool
-//     }
+//	type User struct {
+//	    isAdmin bool
+//	}
 //
-//     func main() {
-//         r := NewRole("admin").Grant("godmode").SetExaminer(func (payload interface{}) bool {
-//             user := payload.(User)
-//             return user.isAdmin
-//         })
+//	func main() {
+//	    r := NewRole("admin").Grant("godmode").SetExaminer(func (payload interface{}) bool {
+//	        user := payload.(User)
+//	        return user.isAdmin
+//	    })
 //
-//         rs := NewManager().Register(r).Examine(User{isAdmin: true})
-//     }
+//	    rs := NewManager().Register(r).Examine(User{isAdmin: true})
+//	}
 func (role *Role) SetExaminer(examiner ExaminerFunc) *Role {
 	role.examiner = examiner
 	return role

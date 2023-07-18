@@ -34,7 +34,6 @@ func (result *ResultSet) GetRole(id string) *Role {
 	return nil
 }
 
-
 // Has checks that at least one role contains the given right.
 func (result *ResultSet) Has(right string) bool {
 	for _, role := range result.Matches {

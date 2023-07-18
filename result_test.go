@@ -1,8 +1,9 @@
 package acl
 
 import (
-	"github.com/stretchr/testify/assert"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestNewResultSet(t *testing.T) {

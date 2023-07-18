@@ -1,4 +1,6 @@
-module github.com/MrBoolean/acl
+module github.com/m19c/acl
+
+go 1.20
 
 require (
 	github.com/davecgh/go-spew v1.1.1 // indirect

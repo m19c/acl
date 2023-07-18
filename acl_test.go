@@ -1,8 +1,9 @@
 package acl
 
 import (
-	"github.com/stretchr/testify/assert"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 const rightProfileEdit = "profile.edit"
@@ -59,7 +60,7 @@ func TestEverything(t *testing.T) {
 	// finally, test the examiner and the result set
 	user.SetExaminer(createDummyExaminer(true))
 	admin.SetExaminer(createDummyExaminer(true))
-	rs := manager.Examine(1337 )
+	rs := manager.Examine(1337)
 
 	a.False(rs.HasRole("guest"))
 	a.True(rs.HasRole("user"))

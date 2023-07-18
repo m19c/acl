@@ -22,9 +22,9 @@ func NewManager() *Manager {
 
 // Register transfers the given roles into the Manager registry.
 //
-//     func main() {
-//         m := NewManager().Register(NewRole("a").Grant("b"), NewRole("c").Grant("d"))
-//     }
+//	func main() {
+//	    m := NewManager().Register(NewRole("a").Grant("b"), NewRole("c").Grant("d"))
+//	}
 //
 // Note, that each role MUST contain an unique identifier.
 func (manager *Manager) Register(roles ...*Role) (*Manager, error) {
